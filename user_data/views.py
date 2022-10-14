@@ -40,11 +40,12 @@ def get_user(request):
 @api_view(["POST"])
 def add_user(request):
     name = request.data.get("name")
+    password = request.data.get("password")
     phone_number = request.data.get("phone_number")
     last_menstural_date = request.data.get("last_menstural_date") 
 
     user_data = User_Data.objects.create(
-        name=name, phone_number=phone_number, last_menstural_date=last_menstural_date
+        name=name, password=password, phone_number=phone_number, last_menstural_date=last_menstural_date
     ) 
     user_data.save()
 
